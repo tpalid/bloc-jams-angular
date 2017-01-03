@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     grunt.registerTask( 'run', [ 'hapi', 'watch' ]);
 
     grunt.initConfig({
-
+        
         watch: {
             hapi: {
                 files: [
