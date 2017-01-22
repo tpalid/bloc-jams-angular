@@ -35,6 +35,14 @@
         Fixtures.getAlbum = function() {
             return albumPicasso;
         }
+        
+        Fixtures.getCollection = function(numberOfAlbums) {
+            arrayOfAlbums = [];
+            for (var i = 0; i < numberOfAlbums; i ++) {
+                arrayOfAlbums.push(albumPicasso);
+            }
+            return arrayOfAlbums;
+        }
          
         return Fixtures;
     }
@@ -42,4 +50,4 @@
     angular
         .module('blocJams')
         .factory('Fixtures', Fixtures)
-})
+})();
