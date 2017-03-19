@@ -23,7 +23,6 @@
                 var seekBar = $(element);
                 
                 attributes.$observe('value', function(newValue) {
-                    console.log(newValue);
                     scope.value = newValue;
                 });
                 
@@ -52,8 +51,7 @@
                 };
                 
                 scope.trackThumb = function() {
-                     console.log("in trackThumb");
-                    $document.bind('mousemove.thumb', function(event) {
+                        $document.bind('mousemove.thumb', function(event) {
                         var percent = calculatePercent(seekBar, event);
                        
                         scope.$apply(function() {
@@ -71,9 +69,8 @@
                 var notifyOnChange = function(newValue) {
                     if (typeof scope.onChange === 'function') {
                         scope.onChange({value: newValue});
-                        console.log("in notifyOnChange");
                     }
-                }
+                };
                 
             }
         };

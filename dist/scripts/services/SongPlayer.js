@@ -47,7 +47,7 @@
         var playSong = function() {
             currentBuzzObject.play();
             SongPlayer.currentSong.playing = true;
-        }
+        };
         
         /**
          * @function getSongIndex
@@ -58,7 +58,7 @@
          
         var getSongIndex = function(song) {
             return currentAlbum.songs.indexOf(song);
-        }
+        };
       
         /**
          * @desc Current song playing, from Fixtures
@@ -80,6 +80,8 @@
          */
         SongPlayer.currentTime = null;
         
+        SongPlayer.volume = null;
+        
          /**
          * @function SongPlayer.play
          * @desc If song clicked on isn't currentSong, calls setSong to set new song and plays the song; if song clicked in currently paused song, plays the song
@@ -87,8 +89,6 @@
          */
         SongPlayer.play = function(song) {
             song = song || SongPlayer.currentSong;
-            console.log(song);
-            console.log(SongPlayer.currentSong);
             if (SongPlayer.currentSong !== song) {
                 setSong(song);
                 playSong();
@@ -109,7 +109,7 @@
             song = song || SongPlayer.currentSong;
             currentBuzzObject.pause();
             song.playing = false;
-        }
+        };
         
         /**
          * @function SongPlayer.previous
@@ -127,7 +127,7 @@
                 setSong(song);
                 playSong();
             }
-        }
+        };
         
         SongPlayer.next = function() {
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
@@ -143,13 +143,19 @@
                 playSong(song);
             }
     
-        }
+        };
         
         SongPlayer.setCurrentTime = function(time) {
             if (currentBuzzObject) {
                 currentBuzzObject.setTime(time);
             }
-        }
+        };
+        
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
+            }
+        };
         return SongPlayer; 
     }
     
